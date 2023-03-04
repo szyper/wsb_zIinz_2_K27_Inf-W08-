@@ -1,0 +1,18 @@
+https://github.com/szyper
+https://www.apachefriends.org/pl/index.html
+C:\xampp\php\php.ini
+upload_max_filesize	40M	40M
+Typ serwera: MariaDB
+
+httpd.conf
+DocumentRoot "C:/xampp/htdocs"
+<Directory "C:/xampp/htdocs">
+
+mysqld.exe
+
+https://gitforwindows.org/
+
+git clone https://github.com/szyper/wsb_zIinz_2_K27_Inf-W08-.git
+
+
+
