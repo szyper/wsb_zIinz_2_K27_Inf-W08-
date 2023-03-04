@@ -25,7 +25,7 @@ git config --global user.name "username"
 git commit
 vim -> i, :wq
 
-
+git push origin main
 
 
 
