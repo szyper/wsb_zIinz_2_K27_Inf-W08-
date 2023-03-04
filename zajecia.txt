@@ -27,6 +27,8 @@ vim -> i, :wq
 
 git push origin main
 
+http://localhost/git/studia/wsb/wsb_zIinz_2_K27_Inf-W08-/1_podstawy.php
+pwd
 
 
 
