@@ -10,7 +10,10 @@ $conn->query($sql);
 //echo $conn->affected_rows;
 
 if ($conn->affected_rows == 0){
-	header("location: ../3_db/3_db_table_delete.php?userDelete=0");
+//	header("location: ../3_db/3_db_table_delete.php?userDelete=0");
+	header("location: ../3_db/4_db_table_delete_add.php?userDelete=0");
 }else{
-	header("location: ../3_db/3_db_table_delete.php?userDelete=$_GET[userIdDelete]");
+//	header("location: ../3_db/3_db_table_delete.php?userDelete=$_GET[userIdDelete]");
+	header("location: ../3_db/4_db_table_delete_add	.php?userDelete=$_GET[userIdDelete]");
 }
+

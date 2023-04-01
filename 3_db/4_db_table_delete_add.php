@@ -51,10 +51,35 @@ $sql = "SELECT `u`.`id` `userId`, `u`.`firstName` as `imie`, `u`.`lastName`, `u`
 TABLEUSERS;
 	  }
   }
+  echo "</table><hr>";
 
-  echo "</table>";
+  if (isset($_GET["addUser"])){
+    echo <<< ADDUSERFORM
+      <h4>Dodawanie użytkownika</h4>
+      <form action="../scripts/add_user.php" method="post">
+        <input type="text" name="firstName" placeholder="Podaj imię" autofocus><br><br>
+        <input type="text" name="lastName" placeholder="Podaj nazwisko"><br><br>
+        <input type="date" name="birthday">Data urodzenia<br><br>
+<!--        <input type="text" name="city_id" placeholder="Podaj miasto"><br><br>-->
+        <select name="city_id">
+ADDUSERFORM;
+    $sql = "SELECT * FROM `cities`";
+    $result = $conn->query($sql);
+    while($city = $result->fetch_assoc()){
+      echo "<option value=\"$city[id]\">$city[city]</option>";
+    }
+
+	  echo <<< ADDUSERFORM
+        </select><br><br>
+        <input type="submit" value="Dodaj użytkownika">
+      </form>
+ADDUSERFORM;
+  }else{
+    echo '<a href="./4_db_table_delete_add.php?addUser=1">Dodaj użytkownika</a>';
+  }
 
   $conn->close();
+
 ?>
 
 </body>
