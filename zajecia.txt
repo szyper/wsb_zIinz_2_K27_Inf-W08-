@@ -31,5 +31,7 @@ http://localhost/git/studia/wsb/wsb_zIinz_2_K27_Inf-W08-/1_podstawy.php
 pwd
 
 
+// zmodyfikować db, dostosować do form rejestracji (adminlte)
+
 
 
