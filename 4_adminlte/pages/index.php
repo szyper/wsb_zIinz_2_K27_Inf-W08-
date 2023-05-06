@@ -37,11 +37,11 @@ ERROR;
       <a href="./" class="h1"><b>Admin</b>LTE</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Rejestracja</p>
 
-      <form action="../index3.html" method="post">
+      <form action="../scripts/login.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Podaj email" name="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -49,7 +49,7 @@ ERROR;
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Podaj hasło" name="pass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -57,7 +57,7 @@ ERROR;
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
+          <div class="col-7">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
@@ -66,8 +66,8 @@ ERROR;
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <div class="col-5">
+            <button type="submit" class="btn btn-primary btn-block">Logowanie</button>
           </div>
           <!-- /.col -->
         </div>

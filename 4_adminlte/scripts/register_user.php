@@ -38,18 +38,23 @@ require_once "./connect.php";
 try {
 	$stmt = $conn->prepare("INSERT INTO `users` (`city_id`, `email`, `firstName`, `lastName`, `birthday`, `password`, `created_at`) VALUES (?, ?, ?, ?, ?, ?, current_timestamp());");
 
-	$stmt->bind_param("isssss", $_POST["city_id"], $_POST["email1"], $_POST["firstName"], $_POST["lastName"], $_POST["birthday"], $_POST["pass1"]);
+	$pass = password_hash($_POST["pass1"], PASSWORD_ARGON2ID);
+
+	$stmt->bind_param("isssss", $_POST["city_id"], $_POST["email1"], $_POST["firstName"], $_POST["lastName"], $_POST["birthday"], $pass);
 
 	$stmt->execute();
 
 	if ($stmt->affected_rows  == 1){
 		$_SESSION["success"] = "Prawidłowo dodano użytkownika $_POST[firstName] $_POST[lastName]";
 	}
-}catch(mysqli_sql_exception $e) {
-	echo "Błąd: ". $e->getMessage();
 
+	header("location: ../pages");
+}catch(mysqli_sql_exception $e) {
+	//echo "Błąd: ". $e->getMessage();
+	$_SESSION["error"] = "Błąd:".$e->getMessage();
+	echo "<script>history.back();</script>";
+	exit();
 }
 
 
 
-//header("location: ../pages");
