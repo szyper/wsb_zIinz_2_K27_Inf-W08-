@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +19,20 @@
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
+  <?php
+    if (isset($_SESSION["error"])){
+      echo <<< ERROR
+        <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                  Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my
+                  entire
+                  soul, like these sweet mornings of spring which I enjoy with my whole heart.
+        </div>
+ERROR;
+
+    }
+  ?>
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="./index.php" class="h1"><b>Admin</b>LTE</a>
