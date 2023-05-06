@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +19,18 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
+	<?php
+	if (isset($_SESSION["success"])){
+		echo <<< ERROR
+        <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-ban"></i> Info</h5>
+                  $_SESSION[success]
+        </div>
+ERROR;
+		unset($_SESSION["success"]);
+	}
+	?>
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
