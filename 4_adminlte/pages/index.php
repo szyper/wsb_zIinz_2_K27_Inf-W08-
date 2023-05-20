@@ -30,6 +30,17 @@
 ERROR;
 		unset($_SESSION["success"]);
 	}
+
+	if (isset($_SESSION["error"])){
+		echo <<< ERROR
+        <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-ban"></i> Info</h5>
+                  $_SESSION[error]
+        </div>
+ERROR;
+		unset($_SESSION["error"]);
+	}
 	?>
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
