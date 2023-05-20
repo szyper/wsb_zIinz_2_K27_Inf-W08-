@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			//echo "zalogowany";
 			$_SESSION["logged"]["firstName"] = $user["firstName"];
 			$_SESSION["logged"]["lastName"] = $user["lastName"];
-			//$_SESSION["logged"]["role"] = $user["role"];
+			$_SESSION["logged"]["role"] = $user["role_id"];
 			$_SESSION["logged"]["session_id"] = session_id();
 			$_SESSION["logged"]["is_active"] = 1;
 
