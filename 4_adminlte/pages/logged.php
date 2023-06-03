@@ -1,8 +1,20 @@
 <?php
   session_start();
-  if (!isset($_SESSION["logged"]) || $_SESSION["logged"]["is_active"] != 1){
+  if (!isset($_SESSION["logged"]) || $_SESSION["logged"]["session_id"] != session_id() || session_status() != 2){
     $_SESSION["error"] = "Zalouj się na stronę!";
     header("location: ./");
+  }else{
+    switch($_SESSION["logged"]["role_id"]){
+      case 1:
+        $role = "logged_user";
+        break;
+	    case 2:
+		    $role = "logged_moderator";
+		    break;
+	    case 3:
+		    $role = "logged_admin";
+		    break;
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -41,65 +53,14 @@
 //    print_r($_SESSION["logged"]);
 //  echo "</pre>"
 
-    switch ($_SESSION["logged"]["role"]){
-      case 1:
-        echo "user";
-        break;
-	    case 2:
-		    echo "moderator";
-		    break;
-	    case 3:
-		    require_once "./view/logged_admin/sidebar.php";
-		    break;
-    }
+		    require_once "./view/$role/sidebar.php";
 
   ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard v2</h1>
-            <?php
-              //print_r($_SESSION["logged"]);
-
-            ?>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-	  <?php
-	  //  echo "<pre>";
-	  //    print_r($_SESSION["logged"]);
-	  //  echo "</pre>"
-
-	  switch ($_SESSION["logged"]["role"]){
-		  case 1:
-			  echo "user";
-			  break;
-		  case 2:
-			  echo "moderator";
-			  break;
-		  case 3:
-			  require_once "./view/logged_admin/content.php";
-			  break;
-	  }
-
-	  ?>
-    <!-- /.content -->
-  </div>
+  <?php
+    require_once "./view/$role/content.php";
+  ?>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
